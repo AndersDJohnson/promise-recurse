@@ -1,13 +1,20 @@
 {
   "name": "promise-recurse",
   "version": "1.1.1",
-  "description": "",
+  "description": "Recursive promise chains.",
   "main": "dist/promise-recurse.js",
   "scripts": {
     "build": "babel src/promise-recurse.js --out-file dist/promise-recurse.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": {
+    "name": "Anders D. Johnson",
+    "url": "https://github.com/AndersDJohnson"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AndersDJohnson/promise-recurse.git"
+  },
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.3.26",
