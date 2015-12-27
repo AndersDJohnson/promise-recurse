@@ -17,7 +17,9 @@ npm install --save promise-recurse
 ```js
 var promiseRecurse = require('promise-recurse').promiseRecurse
 
-promiseRecurse(start, (result) => result.nextPage)
+promiseRecurse(start, (result) => {
+  return result.nextPage // supposing `nextPage` is a promise
+})
 .then((results) => {
   // `results` is an array of each result
 })
