@@ -1,13 +1,13 @@
 
-export function promiseRecurse (start, extract) {
+export function promiseRecurse (startPromise, makeNextPromise) {
   return new Promise(function (resolve, reject) {
     var results = []
-    var handle = function (next) {
-      return next.then(function (result) {
+    var handle = function (nextPromise) {
+      return nextPromise.then(function (result) {
         results.push(result)
-        var next = extract(result, results)
-        if (next) {
-          return handle(next)
+        nextPromise = makeNextPromise(result, results)
+        if (nextPromise) {
+          return handle(nextPromise)
         }
         resolve(results)
       }, function (err) {
@@ -17,7 +17,7 @@ export function promiseRecurse (start, extract) {
         reject(err)
       })
     }
-    handle(start)
+    handle(startPromise)
   })
 }
 
