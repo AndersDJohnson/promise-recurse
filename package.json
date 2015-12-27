@@ -2,10 +2,16 @@
   "name": "promise-recurse",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/promise-recurse.js",
   "scripts": {
+    "build": "babel src/promise-recurse.js --out-file dist/promise-recurse.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.3.26",
+    "babel-plugin-transform-es2015-modules-umd": "^6.3.13",
+    "babel-preset-es2015": "^6.3.13"
+  }
 }

@@ -1,16 +1,19 @@
 
-function fetchAll (start, extract) {
+export function promiseRecurse (start, extract) {
   return new Promise(function (resolve, reject) {
-    results = []
+    var results = []
     var handle = function (next) {
       return next.then(function (result) {
         results = results.concat(result)
         var next = extract(result, results)
-        if (res.nextPage) {
-          return handle(res.nextPage())
+        if (next) {
+          return handle(next)
         }
         resolve(results)
       }, function (err) {
+        reject(err)
+      })
+      .catch(function (err) {
         reject(err)
       })
     }
@@ -18,4 +21,4 @@ function fetchAll (start, extract) {
   })
 }
 
-module.exports = fetchAll
+export default promiseRecurse
