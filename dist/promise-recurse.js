@@ -24,7 +24,7 @@
 
       var handle = function handle(next) {
         return next.then(function (result) {
-          results = results.concat(result);
+          results.push(result);
           var next = extract(result, results);
 
           if (next) {
