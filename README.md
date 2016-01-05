@@ -1,6 +1,10 @@
 # promise-recurse
 
-Recursive promise chains. Useful e.g. for paginated APIs that include a promise or URL for next page in each response.
+> Recursive promise chains. Useful e.g. for paginated APIs that include a promise or URL for next page in each response.
+
+[![npm](https://img.shields.io/npm/v/promise-recurse.svg)](https://www.npmjs.com/package/promise-recurse)
+
+[![NPM](https://nodei.co/npm/promise-recurse.png)](https://nodei.co/npm/promise-recurse/)
 
 ## Install
 
