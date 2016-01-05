@@ -18,17 +18,17 @@
   });
   exports.promiseRecurse = promiseRecurse;
 
-  function promiseRecurse(start, extract) {
+  function promiseRecurse(startPromise, makeNextPromise) {
     return new Promise(function (resolve, reject) {
       var results = [];
 
-      var handle = function handle(next) {
-        return next.then(function (result) {
+      var handle = function handle(nextPromise) {
+        return nextPromise.then(function (result) {
           results.push(result);
-          var next = extract(result, results);
+          nextPromise = makeNextPromise(result, results);
 
-          if (next) {
-            return handle(next);
+          if (nextPromise) {
+            return handle(nextPromise);
           }
 
           resolve(results);
@@ -39,7 +39,7 @@
         });
       };
 
-      handle(start);
+      handle(startPromise);
     });
   }
 
